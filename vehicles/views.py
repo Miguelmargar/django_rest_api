@@ -1,12 +1,17 @@
 from django.shortcuts import render
-from serializers import VehicleSerializer
 from rest_framework import viewsets
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from rest_framework.reverse import reverse
+from .serializers import VehicleSerializer
+from .models import queryset
 
-# Create your views here.
-
-@api_view(["GET"])
-def api_root
-
+@api_view(['GET'])
+def api_root(request, format=None):
+    return Response({
+        'vehicles': reverse('vehicle-list', request=request, format=format)
+    })
 
 class VehicleViewSet(viewsets.ModelViewSet):
     serializer_class = VehicleSerializer
+    queryset = Vehicle.objects.all()

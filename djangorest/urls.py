@@ -15,10 +15,9 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from vehicles import urls as vehicles_urls
+from vehicles import urls as vehicle_urls
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^', include(vehicles_urls)),
-    
+    url(r'^', include(vehicle_urls)),    
 ]
